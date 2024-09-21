@@ -968,3 +968,14 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- NOTE: Function to change colorscheme to solarized8 and set background to light
+function SetSolarizedLight()
+  vim.cmd 'colorscheme solarized8' -- Set colorscheme to solarized8
+  vim.o.background = 'light' -- Set background to light
+end
+
+-- Create a command in Ex mode to call the function
+vim.api.nvim_create_user_command('SetSolar', function()
+  SetSolarizedLight()
+end, {})
